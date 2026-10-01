@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Moustafa Taha Mohamed | Data Engineer</title>
+    <style>
+        :root {
+            --bg-color: #0d0d0d;
+            --text-color: #f0f0f0;
+            --gold-primary: #d4af37;
+            --gold-hover: #f1c40f;
+            --card-bg: #1a1a1a;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes glow {
+            0% { box-shadow: 0 0 5px var(--gold-primary); }
+            50% { box-shadow: 0 0 20px var(--gold-primary); }
+            100% { box-shadow: 0 0 5px var(--gold-primary); }
+        }
+
+        .fade-in {
+            animation: fadeIn 1.5s ease-out forwards;
+        }
+
+        /* Navigation */
+        nav {
+            display: flex;
+            justify-content: center;
+            padding: 2rem;
+            background: rgba(13, 13, 13, 0.9);
+            position: fixed;
+            width: 100%;
+            z-index: 1000;
+            border-bottom: 1px solid #333;
+        }
+
+        nav a {
+            color: var(--text-color);
+            text-decoration: none;
+            margin: 0 1.5rem;
+            font-weight: 600;
+            transition: color 0.3s;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        nav a:hover {
+            color: var(--gold-primary);
+        }
+
+        /* Hero Section */
+        #hero {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 0 2rem;
+        }
+
+        .profile-container {
+            margin-bottom: 2rem;
+        }
+
+        .profile-pic {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid var(--gold-primary);
+            animation: glow 3s infinite;
+        }
+
+        h1 {
+            font-size: 3.5rem;
+            color: var(--gold-primary);
+            margin-bottom: 1rem;
+            letter-spacing: 2px;
+        }
+
+        .typewriter-container {
+            height: 30px;
+            margin-bottom: 2rem;
+        }
+
+        #typewriter {
+            font-size: 1.5rem;
+            color: #aaa;
+            border-right: 2px solid var(--gold-primary);
+            padding-right: 5px;
+            animation: blink 0.75s step-end infinite;
+        }
+
+        @keyframes blink {
+            from, to { border-color: transparent }
+            50% { border-color: var(--gold-primary); }
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .social-links a {
+            color: var(--bg-color);
+            background-color: var(--gold-primary);
+            padding: 0.8rem 1.5rem;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: all 0.3s;
+        }
+
+        .social-links a:hover {
+            background-color: var(--gold-hover);
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(212, 175, 55, 0.4);
+        }
+
+        /* Sections */
+        section {
+            padding: 5rem 10%;
+        }
+
+        h2.section-title {
+            color: var(--gold-primary);
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            text-align: center;
+            text-transform: uppercase;
+            border-bottom: 2px solid var(--gold-primary);
+            display: inline-block;
+            padding-bottom: 0.5rem;
+            position: relative;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        /* About Text */
+        .about-content {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: justify;
+            color: #ccc;
+        }
+
+        /* Projects Grid */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .project-card {
+            background: var(--card-bg);
+            border: 1px solid #333;
+            border-radius: 10px;
+            padding: 2rem;
+            transition: transform 0.3s, border-color 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--gold-primary);
+        }
+
+        .project-card h3 {
+            color: var(--gold-primary);
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .project-card p {
+            color: #bbb;
+            margin-bottom: 1.5rem;
+            font-size: 1rem;
+        }
+
+        .tech-stack {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .tech-tag {
+            background: #333;
+            color: var(--gold-primary);
+            padding: 0.3rem 0.8rem;
+            border-radius: 15px;
+            font-size: 0.85rem;
+        }
+
+        .project-link {
+            color: var(--bg-color);
+            background: var(--gold-primary);
+            padding: 0.5rem 1rem;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            display: inline-block;
+            transition: background 0.3s;
+        }
+
+        .project-link:hover {
+            background: var(--gold-hover);
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 2rem;
+            background: #050505;
+            border-top: 1px solid #333;
+            color: #666;
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <a href="#hero">Home</a>
+        <a href="#about">About</a>
+        <a href="#projects">Projects</a>
+    </nav>
+
+    <section id="hero">
+        <div class="profile-container fade-in">
+            <img src="1000350248.png" alt="Moustafa Taha Mohamed" class="profile-pic">
+        </div>
+        <h1 class="fade-in" style="animation-delay: 0.3s;">Moustafa Taha Mohamed</h1>
+        <div class="typewriter-container fade-in" style="animation-delay: 0.6s;">
+            <span id="typewriter"></span>
+        </div>
+        <div class="social-links fade-in" style="animation-delay: 0.9s;">
+            <a href="https://github.com/Turtle0Shell" target="_blank">GitHub</a>
+            <a href="https://www.linkedin.com/in/moustafa-taha-ab0590414" target="_blank">LinkedIn</a>
+            <a href="https://wa.me/qr/DADOABEMP6CRA1" target="_blank">WhatsApp</a>
+        </div>
+    </section>
+
+    <section id="about">
+        <h2 class="section-title">About Me</h2>
+        <div class="about-content">
+            <p>I am a dedicated Data Engineer combining enterprise-level training as a Microsoft Data Engineer Trainee (DEPI) with hands-on expertise in distributed computing and the Hadoop ecosystem[cite: 1]. Proficient in building automated, scalable data architectures using Python, Java, SQL, and Docker, I specialize in transforming raw datasets into actionable insights through robust ETL pipeline automation and database design[cite: 1].</p>
+        </div>
+    </section>
+
+    <section id="projects">
+        <h2 class="section-title">Key Projects</h2>
+        <div class="projects-grid">
+            
+            <!-- ATLAS Project -->
+            <div class="project-card">
+                <h3>ATLAS (Alexandria Traffic Learning & Analysis System)</h3>
+                <p>Designed an AI-driven, scalable data architecture to aggregate real-time telemetry and contextual inputs for urban traffic analysis[cite: 2]. Engineered multi-tiered data storage strategies including hot databases, data lakes, and structured data warehouses[cite: 2].</p>
+                <div class="tech-stack">
+                    <span class="tech-tag">Real-time Telemetry</span>
+                    <span class="tech-tag">Data Lakes</span>
+                    <span class="tech-tag">Data Warehousing</span>
+                    <span class="tech-tag">ETL Automation</span>
+                </div>
+                <!-- Placeholder URL for GitHub Upload -->
+                <a href="#" class="project-link" target="_blank">View on GitHub</a>
+            </div>
+
+            <!-- Steam Games Analysis Project -->
+            <div class="project-card">
+                <h3>Steam Games Analysis</h3>
+                <p>Performed data preprocessing, exploratory data analysis (EDA), and trend extraction on gaming datasets to uncover marketplace insights[cite: 2]. Utilized Python libraries to clean transactional data and generate clear visual reports[cite: 2].</p>
+                <div class="tech-stack">
+                    <span class="tech-tag">Python</span>
+                    <span class="tech-tag">EDA</span>
+                    <span class="tech-tag">Data Preprocessing</span>
+                    <span class="tech-tag">Data Visualization</span>
+                </div>
+                <!-- Placeholder URL for GitHub Upload -->
+                <a href="#" class="project-link" target="_blank">View on GitHub</a>
+            </div>
+
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 Moustafa Taha Mohamed. Built for Scalability.</p>
+    </footer>
+
+    <script>
+        // Typing Effect for Hero Section
+        const text = "Data Engineer | Building Automated Pipelines & Multi-Tiered Storage Strategies";
+        const typewriterElement = document.getElementById("typewriter");
+        let i = 0;
+
+        function typeWriter() {
+            if (i < text.length) {
+                typewriterElement.innerHTML += text.charAt(i);
+                i++;
+                setTimeout(typeWriter, 50); // Adjust typing speed here
+            }
+        }
+
+        // Trigger typing effect after initial fade-in animations
+        setTimeout(typeWriter, 1200);
+
+        // Smooth Scrolling for Navigation Links
+        document.querySelectorAll('nav a').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>
